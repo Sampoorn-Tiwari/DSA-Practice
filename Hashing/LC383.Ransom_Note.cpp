@@ -1,0 +1,20 @@
+//Using map DS consumes memory and is slow compared to simple count integer array as number of things we need to work on are very less
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+
+        int count[26] = {0};
+
+        for(char c : magazine)
+        count[c-'a']++;
+
+        for(char c : ransomNote){
+
+            count[c-'a']--;
+
+            if(count[c-'a'] < 0)
+            return false;
+        }
+        return true;
+    }
+};
